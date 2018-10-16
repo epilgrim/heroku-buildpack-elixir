@@ -98,9 +98,12 @@ function compile_app() {
 
   cd $build_path
   output_section "Compiling"
+  log_appsignal_directory "before compile"
   mix compile --force || exit 1
 
+  log_appsignal_directory "before deps.clean"
   mix deps.clean --unused
+  log_appsignal_directory "after deps.clean"
 
   export GIT_DIR=$git_dir_value
   cd - > /dev/null

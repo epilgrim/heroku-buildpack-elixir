@@ -20,6 +20,19 @@ function output_section() {
   echo "${indentation} $1"
 }
 
+function log_appsignal_directory() {
+  output_section "appsignal on: $1"
+  local directory="${build_path}/_build/prod/lib/appsignal/priv"
+  output_line "Directory ${directory}"
+  if [ -d  "${directory}" ]; then
+    for e in $(ls "${directory}"); do
+      output_line "${e}"
+      :
+    done
+  else
+    output_line "directory does not exist"
+  fi
+}
 
 function load_config() {
   output_section "Checking Erlang and Elixir versions"

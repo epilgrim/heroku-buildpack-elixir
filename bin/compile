@@ -45,17 +45,28 @@ pre_compile_hook
 
 restore_app
 hook_pre_app_dependencies
+log_appsignal_directory "before app_dependencies"
 app_dependencies
+log_appsignal_directory "before copy_hex"
 copy_hex
 
+log_appsignal_directory "before hook_pre_compile"
 hook_pre_compile
+log_appsignal_directory "before compile_app"
 compile_app
+log_appsignal_directory "before hook_post_compile"
 hook_post_compile
 
+log_appsignal_directory "before backup_app"
 backup_app
+log_appsignal_directory "before backup_mix"
 backup_mix
+log_appsignal_directory "before write_profile_d_script"
 write_profile_d_script
+log_appsignal_directory "before write_export"
 write_export
 
 # deprecated_hook, here for backwards compatibility
+log_appsignal_directory "before post_compile_hook"
 post_compile_hook
+log_appsignal_directory "end"
